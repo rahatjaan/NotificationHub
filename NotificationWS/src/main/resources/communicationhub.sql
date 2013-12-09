@@ -16,3 +16,11 @@ CREATE  TABLE `communication_hub`.`notifications` (
 
   PRIMARY KEY (`id`) );
 
+
+  CREATE TABLE `attachment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `notification_id` int(11) NOT NULL,
+  `attachement` blob,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8$$
+
