@@ -61,4 +61,12 @@
       <url>http://maven.wso2.org/nexus/content/groups/wso2-public/</url>
     </pluginRepository>
   </pluginRepositories>
+  <dependencies>
+  	<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.21</version>
+			
+		</dependency>
+  </dependencies>
 </project>
