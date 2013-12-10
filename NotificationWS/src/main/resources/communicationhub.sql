@@ -20,7 +20,23 @@ CREATE  TABLE `communication_hub`.`notifications` (
   CREATE TABLE `attachment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `notification_id` int(11) NOT NULL,
+  `content_type` VARCHAR(45) NULL ,
   `attachement` blob,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8$$
+) ;
+
+
+CREATE  TABLE `communication_hub`.`user` (
+
+  `id` INT NOT NULL AUTO_INCREMENT ,
+
+  `userGuid` VARCHAR(45) NULL ,
+
+  `username` VARCHAR(45) NULL ,
+
+  `password` VARCHAR(45) NULL ,
+
+  `active` INT NULL DEFAULT 1 ,
+
+  PRIMARY KEY (`id`) );
 

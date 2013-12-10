@@ -1,72 +1,187 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.servercentral.communication.hub.NotificationWS</groupId>
-  <artifactId>NotificationWS</artifactId>
-  <version>1.0.0</version>
-  <packaging>service/axis2</packaging>
-  <name>NotificationWS</name>
-  <description>NotificationWS</description>
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.wso2.maven</groupId>
-        <artifactId>maven-axis2-plugin</artifactId>
-        <version>2.0.4</version>
-        <extensions>true</extensions>
-        <executions>
-          <execution>
-            <id>aar</id>
-            <phase>package</phase>
-            <goals>
-              <goal>aar</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration />
-      </plugin>
-      <plugin>
-        <artifactId>maven-eclipse-plugin</artifactId>
-        <version>2.9</version>
-        <configuration>
-          <buildcommands>
-            <buildcommand>org.eclipse.jdt.core.javabuilder</buildcommand>
-          </buildcommands>
-          <projectnatures>
-            <projectnature>org.wso2.developerstudio.eclipse.axis2.project.nature</projectnature>
-            <projectnature>org.eclipse.jdt.core.javanature</projectnature>
-          </projectnatures>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-  <repositories>
-    <repository>
-      <releases>
-        <updatePolicy>daily</updatePolicy>
-        <checksumPolicy>ignore</checksumPolicy>
-      </releases>
-      <id>wso2-nexus</id>
-      <url>http://maven.wso2.org/nexus/content/groups/wso2-public/</url>
-    </repository>
-  </repositories>
-  <pluginRepositories>
-    <pluginRepository>
-      <releases>
-        <updatePolicy>daily</updatePolicy>
-        <checksumPolicy>ignore</checksumPolicy>
-      </releases>
-      <id>wso2-nexus</id>
-      <url>http://maven.wso2.org/nexus/content/groups/wso2-public/</url>
-    </pluginRepository>
-  </pluginRepositories>
-  <dependencies>
-  	<dependency>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>cc.notifications</groupId>
+	<artifactId>notificationhub</artifactId>
+	<version>1.0.0</version>
+	<packaging>aar</packaging>
+	<name>notificationhub</name>
+	<description>notificationhub</description>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.axis2</groupId>
+				<artifactId>axis2-aar-maven-plugin</artifactId>
+				<version>1.6.1</version>
+				<!--<version>${orbit.version.axis2}</version> -->
+				<extensions>true</extensions>
+				<configuration>
+					<aarName>notification</aarName>
+				</configuration>
+
+			</plugin>
+		</plugins>
+	</build>
+	<repositories>
+		<repository>
+			<releases>
+				<updatePolicy>daily</updatePolicy>
+				<checksumPolicy>ignore</checksumPolicy>
+			</releases>
+			<id>wso2-nexus</id>
+			<url>http://maven.wso2.org/nexus/content/groups/wso2-public/</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<releases>
+				<updatePolicy>daily</updatePolicy>
+				<checksumPolicy>ignore</checksumPolicy>
+			</releases>
+			<id>wso2-nexus</id>
+			<url>http://maven.wso2.org/nexus/content/groups/wso2-public/</url>
+		</pluginRepository>
+	</pluginRepositories>
+	<dependencies>
+
+		<dependency>
+			<groupId>org.apache.axis2</groupId>
+			<artifactId>axis2</artifactId>
+			<version>${org.apache.axis2.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.axis2</groupId>
+			<artifactId>axis2-spring</artifactId>
+			<version>${org.apache.axis2.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework</groupId> -->
+<!-- 			<artifactId>spring-tx</artifactId> -->
+<!-- 			<version>${org.springframework.version}</version> -->
+<!-- 		</dependency> -->
+
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework</groupId> -->
+<!-- 			<artifactId>spring-jdbc</artifactId> -->
+<!-- 			<version>${org.springframework.version}</version> -->
+<!-- 		</dependency> -->
+
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework</groupId> -->
+<!-- 			<artifactId>spring-orm</artifactId> -->
+<!-- 			<version>${org.springframework.version}</version> -->
+<!-- 		</dependency> -->
+
+		<!-- MySQL database driver -->
+		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.21</version>
-			
+			<version>5.1.9</version>
 		</dependency>
-  </dependencies>
+
+		<!-- Hibernate framework -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${org.hibernate.version}</version>
+		</dependency>
+
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.hibernate</groupId> -->
+<!-- 			<artifactId>hibernate-entitymanager</artifactId> -->
+<!-- 			<version>${org.hibernate.version}</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.hibernate.javax.persistence</groupId> -->
+<!-- 			<artifactId>hibernate-jpa-2.0-api</artifactId> -->
+<!-- 			<version>1.0.1.Final</version> -->
+<!-- 		</dependency> -->
+		<!-- Hibernate library dependecy start -->
+		<dependency>
+			<groupId>dom4j</groupId>
+			<artifactId>dom4j</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>antlr</groupId>
+			<artifactId>antlr</artifactId>
+			<version>2.7.7</version>
+		</dependency>
+		<!-- Hibernate library dependency end -->
+
+		<!--AspectJ dependency -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${org.aspectj.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${org.aspectj.version}</version>
+		</dependency>
+
+		<!-- JUnit testing framework -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.1</version>
+		</dependency>
+
+	</dependencies>
+	<properties>
+		<artifact.types>service/rule=aar,lib/library/bundle=jar,synapse/message-processors=xml,synapse/proxy-service=xml,synapse/message-store=xml,carbon/application=car,registry/resource=zip,synapse/endpoint=xml,lib/dataservice/validator=jar,web/application=war,synapse/sequence=xml,synapse/configuration=xml,synapse/task=xml,lib/registry/handlers=jar,webapp/jaxws=war,synapse/api=xml,cep/bucket=xml,bpel/workflow=zip,lib/registry/filter=jar,service/dataservice=dbs,synapse/local-entry=xml,synapse/template=xml,synapse/event-source=xml,lib/carbon/ui=jar,service/axis2=aar,wso2/gadget=dar,lib/synapse/mediator=jar</artifact.types>
+		<org.apache.axis2.version>1.6.1</org.apache.axis2.version>
+		<org.aspectj.version>1.6.11</org.aspectj.version>
+		<org.hibernate.version>3.6.0.Final</org.hibernate.version>
+		<org.springframework.version>3.2.2.RELEASE</org.springframework.version>
+	</properties>
 </project>

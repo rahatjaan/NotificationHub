@@ -5,16 +5,14 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
+import com.servercentral.communication.hub.conf.ConfigLoader;
+
 public class ConnectionUtil {
 
-	static String dbms = "mysql";
 	static String userName= "root";
 	static String password="";
-	static String serverName="localhost";
-	static String portNumber="3306";
-	static String dbName="learning";
-	private static String db="communication_hub";
-	
+	private static String dburl = "jdbc:mysql://localhost:3306/communication_hub";
+	static boolean initialized = false;
 	public static void main(String []args){
 		try {
 			getConnection();
@@ -25,32 +23,27 @@ public class ConnectionUtil {
 	}
 
 	
-	public static boolean closeConnection(Connection connection) throws SQLException{
-		connection.close();
-		return true;
-	}
 	public static Connection getConnection() throws SQLException {
-
+		if(!initialized)
+			initProperties();
 	    Connection conn = null;
 	    Properties connectionProps = new Properties();
 	    connectionProps.put("user", userName);
 	    connectionProps.put("password", password);
-
-	    if (dbms.equals("mysql")) {
-	        conn = DriverManager.getConnection(
-	                   "jdbc:" + dbms + "://" +
-	                   serverName +
-	                   ":" + portNumber + "/"+db,
-	                   connectionProps);
-	    } else if (dbms.equals("derby")) {
-	        conn = DriverManager.getConnection(
-	                   "jdbc:" + dbms + ":" +
-	                   dbName +
-	                   ";create=true",
-	                   connectionProps);
-	    }
+	    conn = DriverManager.getConnection(dburl,connectionProps);
 	    System.out.println("Connected to database");
 	    return conn;
+	}
+
+
+	private static void initProperties() {
+		try{
+		dburl = ConfigLoader.getDbUrl();
+		userName = ConfigLoader.getDbUser();
+		password = ConfigLoader.getDbPassword();
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
 	}
 
 }

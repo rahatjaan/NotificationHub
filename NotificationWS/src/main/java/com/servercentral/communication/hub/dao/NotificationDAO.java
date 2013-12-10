@@ -10,9 +10,20 @@ public class NotificationDAO {
 
 	public boolean saveNotification(Notification notification) throws SQLException{
 		Connection conn = ConnectionUtil.getConnection();
-		Statement stmt= conn.createStatement();
-		String sql = "";
+		Statement stmt = null;
+		try{
+		stmt= conn.createStatement();
+		String sql = "INSERT INTO communication_hub.notifications(subject,to,from,messageBody,recipient_guid)" +
+				"VALUES('"+notification.getSubject()+"','"+notification.getTo()+"','"+notification.getFrom()+"','"+notification.getMessageBody()+"','"+notification.getRecipientGuid()+"')";
 		stmt.executeUpdate(sql);
+		}catch(Exception ex){
+			return false;
+		}finally{
+			if(stmt!=null)
+				stmt.close();
+			if(conn!=null)
+				conn.close();
+		}
 		return true;
 	}
 	

@@ -5,6 +5,12 @@ public class Notification {
 	String subject;
 	String from;
 	String recipientGuid;
+	public String getRecipientGuid() {
+		return recipientGuid;
+	}
+	public void setRecipientGuid(String recipientGuid) {
+		this.recipientGuid = recipientGuid;
+	}
 	String to;
 	String cc;
 	String messageBody;
