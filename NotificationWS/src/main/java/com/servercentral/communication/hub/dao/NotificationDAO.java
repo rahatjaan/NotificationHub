@@ -14,7 +14,6 @@ public class NotificationDAO {
 		String sql = "";
 		stmt.executeUpdate(sql);
 		return true;
-		
 	}
 	
 	public boolean createDBSchema(){
