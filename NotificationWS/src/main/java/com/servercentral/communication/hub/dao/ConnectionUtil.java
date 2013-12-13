@@ -27,9 +27,15 @@ public class ConnectionUtil {
 		if(!initialized)
 			initProperties();
 	    Connection conn = null;
+	    
 	    Properties connectionProps = new Properties();
 	    connectionProps.put("user", userName);
 	    connectionProps.put("password", password);
+	    try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 	    conn = DriverManager.getConnection(dburl,connectionProps);
 	    System.out.println("Connected to database");
 	    return conn;
