@@ -15,6 +15,6 @@ public class DateUtil {
 	
 	public static String getShortDate(Date date){
 		
-		return getShortDate(date);	
+		return getShortDate(date,shortDateFormat);	
 	}
 }
