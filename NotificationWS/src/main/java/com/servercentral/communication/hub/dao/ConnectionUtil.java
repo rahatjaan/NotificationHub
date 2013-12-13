@@ -32,8 +32,11 @@ public class ConnectionUtil {
 	    connectionProps.put("user", userName);
 	    connectionProps.put("password", password);
 	    try {
+	    	System.out.println("loading jdbc driver class");
 			Class.forName("com.mysql.jdbc.Driver");
+			System.out.println("loaded class");
 		} catch (ClassNotFoundException e) {
+			System.out.println("loading jdbc driver class causes exception");
 			e.printStackTrace();
 		}
 	    conn = DriverManager.getConnection(dburl,connectionProps);

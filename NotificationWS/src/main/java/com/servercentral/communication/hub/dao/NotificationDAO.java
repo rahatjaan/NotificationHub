@@ -13,10 +13,11 @@ public class NotificationDAO {
 		Statement stmt = null;
 		try{
 		stmt= conn.createStatement();
-		String sql = "INSERT INTO communication_hub.notifications(subject,to,from,messageBody,recipient_guid)" +
+		String sql = "INSERT INTO communication_hub.notifications(notification_subject,notification_to,notification_from,messageBody,recipient_guid)" +
 				"VALUES('"+notification.getSubject()+"','"+notification.getTo()+"','"+notification.getFrom()+"','"+notification.getMessageBody()+"','"+notification.getRecipientGuid()+"')";
 		stmt.executeUpdate(sql);
 		}catch(Exception ex){
+			ex.printStackTrace();
 			return false;
 		}finally{
 			if(stmt!=null)
