@@ -1,20 +1,81 @@
 package com.servercentral.communication.hub.model;
 
+import java.util.Date;
+
 public class Notification {
 
 	String subject;
 	String from;
-	String recipientGuid;
-	public String getRecipientGuid() {
-		return recipientGuid;
-	}
-	public void setRecipientGuid(String recipientGuid) {
-		this.recipientGuid = recipientGuid;
-	}
+	String receiverGUID;
+	String senderGUID;
+	String senderTenantGUID;
+	String receiverTenantGuid;
 	String to;
 	String cc;
+	Date receivedDate;
+	Date forwardDate;
+	String forwardEmail;
+	Integer forward;
+	Integer messageType;
 	String messageBody;
 	Attachment[] attachments;
+	
+	public Integer getMessageType() {
+		return messageType;
+	}
+	public void setMessageType(Integer messageType) {
+		this.messageType = messageType;
+	}
+	
+	public String getReceiverGUID() {
+		return receiverGUID;
+	}
+	public void setReceiverGUID(String receiverGUID) {
+		this.receiverGUID = receiverGUID;
+	}
+	public String getSenderGUID() {
+		return senderGUID;
+	}
+	public void setSenderGUID(String senderGUID) {
+		this.senderGUID = senderGUID;
+	}
+	public String getSenderTenantGUID() {
+		return senderTenantGUID;
+	}
+	public void setSenderTenantGUID(String senderTenantGUID) {
+		this.senderTenantGUID = senderTenantGUID;
+	}
+	public String getReceiverTenantGuid() {
+		return receiverTenantGuid;
+	}
+	public void setReceiverTenantGuid(String receiverTenantGuid) {
+		this.receiverTenantGuid = receiverTenantGuid;
+	}
+	public Date getReceivedDate() {
+		return receivedDate;
+	}
+	public void setReceivedDate(Date receivedDate) {
+		this.receivedDate = receivedDate;
+	}
+	public Date getForwardDate() {
+		return forwardDate;
+	}
+	public void setForwardDate(Date forwardDate) {
+		this.forwardDate = forwardDate;
+	}
+	public String getForwardEmail() {
+		return forwardEmail;
+	}
+	public void setForwardEmail(String forwardEmail) {
+		this.forwardEmail = forwardEmail;
+	}
+	public Integer getForward() {
+		return forward;
+	}
+	public void setForward(Integer forward) {
+		this.forward = forward;
+	}
+	
 	
 	public String getSubject() {
 		return subject;

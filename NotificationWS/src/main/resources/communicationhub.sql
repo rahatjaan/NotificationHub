@@ -7,7 +7,15 @@ CREATE TABLE `notifications` (
   `notification_to` varchar(200) DEFAULT NULL,
   `notification_from` varchar(200) DEFAULT NULL,
   `messageBody` text,
-  `recipient_guid` varchar(45) DEFAULT NULL,
+  `sender_guid` varchar(45) DEFAULT NULL,
+  `receiver_guid` varchar(45) DEFAULT NULL,
+  `sender_tenant_guid` varchar(45) DEFAULT NULL,
+  `receiver_tenant_guid` varchar(45) DEFAULT NULL,
+  `received_date` datetime DEFAULT NULL,
+  `forward` int(11) DEFAULT NULL,
+  `forwardDate` datetime DEFAULT NULL,
+  `forwardEmail` varchar(45) DEFAULT NULL,
+  `messagetype` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 )
 
