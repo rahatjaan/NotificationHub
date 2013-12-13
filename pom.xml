@@ -95,14 +95,14 @@
   </pluginRepositories>
   <dependencies>
     <dependency>
-      <groupId>com.servercentral.communication.hub.NotificationWS</groupId>
-      <artifactId>NotificationWS</artifactId>
+      <groupId>cc.communication.hub</groupId>
+      <artifactId>notifications</artifactId>
       <version>1.0.0</version>
       <type>aar</type>
     </dependency>
   </dependencies>
   <properties>
-    <com.servercentral.communication.hub.NotificationWS_._NotificationWS>capp/ApplicationServer</com.servercentral.communication.hub.NotificationWS_._NotificationWS>
+    <cc.communication.hub_._notifications>capp/ApplicationServer</cc.communication.hub_._notifications>
     <artifact.types>service/rule=aar,lib/library/bundle=jar,synapse/message-processors=xml,synapse/proxy-service=xml,synapse/message-store=xml,carbon/application=car,registry/resource=zip,synapse/endpoint=xml,lib/dataservice/validator=jar,web/application=war,synapse/sequence=xml,synapse/configuration=xml,lib/registry/handlers=jar,synapse/task=xml,webapp/jaxws=war,synapse/api=xml,cep/bucket=xml,bpel/workflow=zip,lib/registry/filter=jar,service/dataservice=dbs,synapse/local-entry=xml,synapse/priority-executor=xml,synapse/template=xml,synapse/event-source=xml,lib/carbon/ui=jar,service/axis2=aar,wso2/gadget=dar,lib/synapse/mediator=jar</artifact.types>
   </properties>
 </project>
