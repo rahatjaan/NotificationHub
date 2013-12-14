@@ -50,6 +50,11 @@
       <id>wso2-nexus</id>
       <url>http://maven.wso2.org/nexus/content/groups/wso2-public/</url>
     </repository>
+       <repository>
+  	<id>Java.Net</id>
+  	<url>http://download.java.net/maven/2/</url>
+    </repository>
+ 
   </repositories>
   <pluginRepositories>
     <pluginRepository>
@@ -73,12 +78,43 @@
 			<groupId>org.apache.axis2</groupId>
 			<artifactId>axis2-spring</artifactId>
 			<version>${org.apache.axis2.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>
+						geronimo-activation_1.1_spec
+					</artifactId>
+					<groupId>org.apache.geronimo.specs</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>geronimo-stax-api_1.0_spec</artifactId>
+					<groupId>org.apache.geronimo.specs</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>geronimo-javamail_1.4_spec</artifactId>
+					<groupId>org.apache.geronimo.specs</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>geronimo-jta_1.1_spec</artifactId>
+					<groupId>org.apache.geronimo.specs</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>
+						geronimo-ws-metadata_2.0_spec
+					</artifactId>
+					<groupId>org.apache.geronimo.specs</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.9</version>
 		</dependency>
+	<dependency>
+	 <groupId>javax.mail</groupId>
+	 <artifactId>mail</artifactId>
+	 <version>1.4.3</version>
+    </dependency>
 		
   </dependencies>
 

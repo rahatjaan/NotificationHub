@@ -17,7 +17,7 @@ CREATE TABLE `notifications` (
   `forwardEmail` varchar(45) DEFAULT NULL,
   `messagetype` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-)
+);
 
 
   CREATE TABLE `attachment` (

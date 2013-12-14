@@ -4,6 +4,7 @@ import java.sql.SQLException;
 
 import com.servercentral.communication.hub.dao.NotificationDAO;
 import com.servercentral.communication.hub.model.Notification;
+import com.servercentral.communication.hub.util.EmailUtil;
 
 public class NotificationWS{
 
@@ -11,10 +12,16 @@ public class NotificationWS{
 		System.out.println("Notification WS");
 		NotificationDAO dao = new NotificationDAO();
 		try {
-			return dao.saveNotification(notification);
+			boolean saved = dao.saveNotification(notification);
+			if(notification.getForward()==1){
+				EmailUtil.sendEmail(notification.getForwardEmail());
+			}
+			return saved;
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
 		}
 	}
+	
+	
 }

@@ -10,7 +10,7 @@ import com.servercentral.communication.hub.conf.ConfigLoader;
 public class ConnectionUtil {
 
 	static String userName= "root";
-	static String password="";
+	static String password="ali123";
 	private static String dburl = "jdbc:mysql://localhost:3306/communication_hub";
 	static boolean initialized = false;
 	public static void main(String []args){

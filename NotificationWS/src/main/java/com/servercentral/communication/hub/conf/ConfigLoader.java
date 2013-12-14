@@ -23,7 +23,7 @@ public class ConfigLoader {
 //			configuration.configure(configFile);
 	        
 			props.load(ConfigLoader.class.getClassLoader().getResourceAsStream("config.properties"));
-			System.out.println(getString("host"));
+			System.out.println("properties laded:"+getString("db.url"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}		
