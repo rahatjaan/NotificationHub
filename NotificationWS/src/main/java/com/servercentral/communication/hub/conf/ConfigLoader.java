@@ -1,11 +1,7 @@
 package com.servercentral.communication.hub.conf;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.Properties;
-
-import org.apache.axis2.context.MessageContext;
-import org.apache.axis2.description.AxisService;
 
 public class ConfigLoader {
 
@@ -13,15 +9,11 @@ public class ConfigLoader {
 	static final String DB_URL="db.url";
 	static final String DB_USER="db.user";
 	static final String DB_PASSWORD="db.password";
+	static final String SMTP_USER="smtp.username";
+	static final String SMTP_PASSWORD="smtp.password";
 	static{
 
 		try {
-//			AxisService axisService = MessageContext.getCurrentMessageContext().getAxisService();
-//	        ClassLoader serviceClassLoader = axisService.getClassLoader();
-//	        URL configURL = serviceClassLoader.getResource("hibernate.cfg.xml");
-//	        System.out.println("hibernate.cfg.xml:"+configURL.toString());
-//			configuration.configure(configFile);
-	        
 			props.load(ConfigLoader.class.getClassLoader().getResourceAsStream("config.properties"));
 			System.out.println("properties laded:"+getString("db.url"));
 		} catch (IOException e) {
@@ -42,6 +34,14 @@ public class ConfigLoader {
 	}
 	public static String getDbPassword(){
 		return getString(DB_PASSWORD);
+				
+	}
+	public static String getSMTPUser(){
+		return getString(SMTP_USER);
+				
+	}
+	public static String getSMTPPassword(){
+		return getString(SMTP_PASSWORD);
 				
 	}
 }

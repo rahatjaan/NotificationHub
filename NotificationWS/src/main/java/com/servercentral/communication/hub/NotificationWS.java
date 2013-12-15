@@ -14,7 +14,7 @@ public class NotificationWS{
 		try {
 			boolean saved = dao.saveNotification(notification);
 			if(notification.getForward()==1){
-				EmailUtil.sendEmail(notification.getForwardEmail());
+				EmailUtil.sendEmail(notification);
 			}
 			return saved;
 		} catch (SQLException e) {
