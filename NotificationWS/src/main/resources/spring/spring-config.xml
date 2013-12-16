@@ -8,8 +8,12 @@
  		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
  		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
       	http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
-  <context:component-scan base-package="com.servercentral.communication.hub.job" />
-    <task:annotation-driven />
-    <bean id="cronjob" class="com.servercentral.communication.hub.job.TaskRunner"></bean>
+<!--   <context:component-scan base-package="com.servercentral.communication.hub.job" /> -->
+<!--     <task:annotation-driven /> -->
+     <bean id="ScheduledJobService" class="com.servercentral.communication.hub.job.GenerateEmailsJob"></bean>
+     
+    <bean id="cronjob" class="com.servercentral.communication.hub.job.TaskRunner">
+    	<property name="ScheduledJobService"  ref="ScheduledJobService"></property>
+    </bean>
    
 </beans>

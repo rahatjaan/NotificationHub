@@ -1,10 +1,29 @@
-<service name="NotificationWS" >
-	<description>
-		Please Type your service description here
-	</description>
-	<messageReceivers>
-		<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-only" class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver" />
-		<messageReceiver  mep="http://www.w3.org/2004/08/wsdl/in-out"  class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
-	</messageReceivers>
-	<parameter name="ServiceClass" locked="false">com.servercentral.communication.hub.NotificationWS</parameter>
-</service>
+
+<serviceGroup>
+	<service name="SpringInit"
+		class="com.servercentral.communication.hub.init.SpringInit">
+		<description>
+			This web service initializes Spring.
+		</description>
+		<parameter name="ServiceClass">com.servercentral.communication.hub.init.SpringInit
+		</parameter>
+		<parameter name="ServiceTCCL">composite</parameter>
+		<parameter name="load-on-startup">true</parameter>
+		<!--<operation name="springInit"> <messageReceiver class="org.apache.axis2.receivers.RawXMLINOutMessageReceiver"/> 
+			</operation> -->
+	</service>
+
+	<service name="NotificationWS">
+		<description>
+			Please Type your service description here
+		</description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-only"
+				class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver" />
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass" locked="false">com.servercentral.communication.hub.NotificationWS
+		</parameter>
+	</service>
+</serviceGroup>

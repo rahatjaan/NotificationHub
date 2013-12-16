@@ -1,11 +1,16 @@
 package com.servercentral.communication.hub.job;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 
 public class TaskRunner {
 	
-	@Autowired
 	ScheduledJob ScheduledJobService;
+	
+	public ScheduledJob getScheduledJobService() {
+		return ScheduledJobService;
+	}
+	public void setScheduledJobService(ScheduledJob scheduledJobService) {
+		ScheduledJobService = scheduledJobService;
+	}
 	//Fire at 12:00 PM (noon) every day
 	@Scheduled(cron="*/5 * * * * ?")
 	// every hour
